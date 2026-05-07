@@ -779,6 +779,25 @@ footer {
         z-index: 9999;
     }
 
+    /* Horizontal Swipe for Cards on Mobile */
+    .mobile-swipe {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        padding-bottom: 20px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+    .mobile-swipe::-webkit-scrollbar {
+        display: none;
+    }
+    .mobile-swipe > div {
+        flex: 0 0 85%;
+        max-width: 85%;
+        scroll-snap-align: center;
+    }
+
     .legal-content {
         padding: 120px 20px 40px;
     }
