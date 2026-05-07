@@ -53,7 +53,7 @@ class MainFooter extends HTMLElement {
                         <p class="mt-3 text-white" style="opacity: 0.8;">Empowering your journey with the science of numbers, planetary alignments, and Vastu energies. Your trusted partner for spiritual and financial growth.</p>
                         <div class="social-icons mt-4">
                             <a href="https://youtube.com/@occultdigits" aria-label="YouTube channel" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
-                            <a href="#" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.instagram.com/occultdigits?utm_source=qr&igsh=MXJwc3Zrejh2bmdwaw%3D%3D" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
                     <div class="col-lg-2 col-md-6 mb-4">
