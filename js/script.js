@@ -125,23 +125,29 @@ if(consultationForm) {
     });
 }
 
-// Scroll animation
-function checkScroll() {
+// Scroll animation using modern IntersectionObserver (Improves Performance)
+document.addEventListener('DOMContentLoaded', function() {
     const fadeElements = document.querySelectorAll('.fade-in');
     
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+    
+    const fadeObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target); // Stop observing once visible
+            }
+        });
+    }, observerOptions);
+    
     fadeElements.forEach(element => {
-        const elementTop = element.getBoundingClientRect().top;
-        const elementVisible = 50;
-        
-        if(elementTop < window.innerHeight - elementVisible) {
-            element.classList.add('visible');
-        }
+        fadeObserver.observe(element);
     });
-}
-
-window.addEventListener('scroll', checkScroll);
-window.addEventListener('load', checkScroll);
-document.addEventListener('DOMContentLoaded', checkScroll); // Runs animation as soon as HTML is ready
+});
 
 // Numerology Calculator Logic (Chaldean & Vedic)
 const chaldeanMap = {
