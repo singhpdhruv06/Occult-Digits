@@ -10,9 +10,10 @@ function sanitizeInput(input) {
 window.addEventListener('load', function() {
     const loading = document.getElementById('loading');
     if (loading) {
-        setTimeout(function() {
-            loading.classList.add('hidden');
-        }, 1000);
+        // Hide immediately on load to improve Largest Contentful Paint (LCP)
+        loading.classList.add('hidden');
+        // Remove from DOM after fade out to free memory
+        setTimeout(() => { loading.style.display = 'none'; }, 500);
     }
 });
 
