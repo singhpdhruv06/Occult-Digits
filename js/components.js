@@ -13,7 +13,7 @@ class MainHeader extends HTMLElement {
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="/#about">About</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/#services">Services</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/services">Services</a></li>
                         <li class="nav-item"><a class="nav-link" href="/#testimonials">Testimonials</a></li>
                         <li class="nav-item"><a class="nav-link" href="/blog">Blog</a></li>
                         <li class="nav-item"><a class="nav-link" href="/#faq">FAQ</a></li>
@@ -47,7 +47,7 @@ class MainFooter extends HTMLElement {
                         <div class="footer-links">
                             <a href="/">Home</a>
                             <a href="/#about">About</a>
-                            <a href="/#services">Services</a>
+                            <a href="/services">Services</a>
                             <a href="/#calculator">Free Calculator</a>
                             <a href="/blog">Blog</a>
                             <a href="/#testimonials">Testimonials</a>
@@ -60,16 +60,16 @@ class MainFooter extends HTMLElement {
                         <div class="footer-links">
                             <div class="row">
                                 <div class="col-6">
-                                    <a href="/#services">Personal Numerology</a>
-                                    <a href="/#services">Business Master</a>
-                                    <a href="/#services">Kundali Analysis</a>
-                                    <a href="/#services">Digital Wealth</a>
+                                    <a href="/services#personal">Personal Numerology</a>
+                                    <a href="/services#business">Business Master</a>
+                                    <a href="/services#kundali">Kundali Analysis</a>
+                                    <a href="/services#digital">Digital Wealth</a>
                                 </div>
                                 <div class="col-6">
-                                    <a href="/#services">Asset Numerology</a>
-                                    <a href="/#services">Career & Purpose</a>
-                                    <a href="/#services">Premium Vastu</a>
-                                    <a href="/#services">Health Scan</a>
+                                    <a href="/services#asset">Asset Numerology</a>
+                                    <a href="/services#career">Career & Purpose</a>
+                                    <a href="/services#vastu">Premium Vastu</a>
+                                    <a href="/services#health">Health Scan</a>
                                 </div>
                             </div>
                         </div>
