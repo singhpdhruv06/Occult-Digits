@@ -141,7 +141,7 @@ h1, h2, h3, h4, h5 {
 
 .hindi-text {
     font-family: 'Noto Sans Devanagari', sans-serif;
-    font-size: clamp(1.2rem, 3vw, 1.5rem);
+    font-size: clamp(0.8rem, 2vw, 1rem);
     margin: 20px 0;
     color: var(--secondary);
     text-shadow: 0 1px 5px rgba(0,0,0,0.3);
