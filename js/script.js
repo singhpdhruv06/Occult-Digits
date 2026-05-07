@@ -9,9 +9,11 @@ function sanitizeInput(input) {
 // Loading screen
 window.addEventListener('load', function() {
     const loading = document.getElementById('loading');
-    setTimeout(function() {
-        loading.classList.add('hidden');
-    }, 1000);
+    if (loading) {
+        setTimeout(function() {
+            loading.classList.add('hidden');
+        }, 1000);
+    }
 });
 
 // Global event listener for smooth scrolling (supports Web Components & Absolute Paths)
@@ -51,27 +53,34 @@ window.addEventListener('scroll', function() {
     const navbar = document.querySelector('.navbar');
     const backToTop = document.getElementById('backToTop');
     
-    if(window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
+    if (navbar) {
+        if(window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
     }
     
     // Show/hide back to top button
-    if(window.scrollY > 300) {
-        backToTop.classList.add('show');
-    } else {
-        backToTop.classList.remove('show');
+    if (backToTop) {
+        if(window.scrollY > 300) {
+            backToTop.classList.add('show');
+        } else {
+            backToTop.classList.remove('show');
+        }
     }
 });
 
 // Back to top functionality
-document.getElementById('backToTop').addEventListener('click', function() {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
+const backToTopBtn = document.getElementById('backToTop');
+if (backToTopBtn) {
+    backToTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
     });
-});
+}
 
 // Form submission with validation
 const consultationForm = document.getElementById('consultationForm');
@@ -131,6 +140,7 @@ function checkScroll() {
 
 window.addEventListener('scroll', checkScroll);
 window.addEventListener('load', checkScroll);
+document.addEventListener('DOMContentLoaded', checkScroll); // Runs animation as soon as HTML is ready
 
 // Numerology Calculator Logic (Chaldean & Vedic)
 const chaldeanMap = {
@@ -317,10 +327,13 @@ if(calcForm) {
     });
     
     // WhatsApp Button Click Handler
-    document.getElementById('waReportBtn').addEventListener('click', function(e) {
-        e.preventDefault();
-        if(currentWaMessage) {
-            window.open(`https://wa.me/918860133445?text=${encodeURIComponent(currentWaMessage)}`, '_blank');
-        }
-    });
+    const waReportBtn = document.getElementById('waReportBtn');
+    if (waReportBtn) {
+        waReportBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            if(currentWaMessage) {
+                window.open(`https://wa.me/918860133445?text=${encodeURIComponent(currentWaMessage)}`, '_blank');
+            }
+        });
+    }
 }
