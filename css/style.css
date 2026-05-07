@@ -13,6 +13,11 @@
     padding: 0;
 }
 
+main-header, main-footer {
+    display: block;
+    width: 100%;
+}
+
 html {
     scroll-behavior: smooth;
     overflow-x: hidden;
@@ -488,6 +493,12 @@ h1, h2, h3, h4, h5 {
     box-shadow: 0 0 0 0.2rem rgba(139, 90, 43, 0.25);
 }
 
+/* Seamless Input Group */
+.input-group-text:has(+ .form-control:focus) {
+    border-color: var(--primary);
+    box-shadow: -4px 0 0 0.2rem rgba(139, 90, 43, 0.25) inset;
+}
+
 /* Footer */
 footer {
     background-color: var(--dark);
@@ -560,11 +571,14 @@ footer {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     transition: var(--transition);
     animation: pulse 2s infinite;
+    text-decoration: none !important;
 }
 
 .whatsapp-button:hover {
     transform: scale(1.1);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    color: white !important;
+    text-decoration: none !important;
 }
 
 @keyframes pulse {
