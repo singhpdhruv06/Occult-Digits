@@ -101,6 +101,8 @@ if(consultationForm) {
     waMessage += `\n*Interested Service:* ${service}`;
     if (message) waMessage += `\n\n*Message:* ${message}`;
     
+    waMessage += `\n\n[Source: Website Contact Form]`;
+    
     // Encode text and redirect to WhatsApp
     const waUrl = `https://wa.me/918860133445?text=${encodeURIComponent(waMessage)}`;
     window.open(waUrl, '_blank');
@@ -310,7 +312,7 @@ if(calcForm) {
             const actionText = "I would like to get a deeper analysis of my numbers and book a detailed consultation. Please guide me with the process.";
 
             // Update WhatsApp global variable
-            currentWaMessage = `Hello Dr. Jyoti! 👋\n\nI just checked my lucky numbers on your website.\n\n*Name:* ${document.getElementById('calcName').value.trim()}\n*DOB:* ${day}-${month}-${year}\n\n*My Results:*\nPsychic (Mulyaank): ${mulyaank}\nDestiny (Bhagyank): ${bhagyank}\nName Number: ${nameNumber}\n\n${actionText}`;
+            currentWaMessage = `Hello Dr. Jyoti! 👋\n\nI just checked my lucky numbers on your website.\n\n*Name:* ${document.getElementById('calcName').value.trim()}\n*DOB:* ${day}-${month}-${year}\n\n*My Results:*\nPsychic (Mulyaank): ${mulyaank}\nDestiny (Bhagyank): ${bhagyank}\nName Number: ${nameNumber}\n\n${actionText}\n\n[Source: Website Numerology Calculator]`;
         }, 1500);
     });
     

@@ -78,7 +78,7 @@ class MainFooter extends HTMLElement {
                         <h4 class="footer-heading">Contact & Legal</h4>
                         <div class="footer-links">
                             <a href="tel:+918860133445" title="Click to Call"><i class="fas fa-phone me-2"></i>Call: +91-8860133445</a>
-                            <a href="https://wa.me/918860133445" target="_blank" rel="noopener noreferrer" title="Click to Chat"><i class="fab fa-whatsapp me-2"></i>WhatsApp Us</a>
+                            <a href="https://wa.me/918860133445?text=Hello%20Dr.%20Jyoti!%20I%20would%20like%20to%20connect%20with%20you%20for%20a%20consultation.%20%5BSource%3A%20Website%20Footer%5D" target="_blank" rel="noopener noreferrer" title="Click to Chat"><i class="fab fa-whatsapp me-2"></i>WhatsApp Us</a>
                             <a href="privacy-policy.html"><i class="fas fa-shield-alt me-2"></i>Privacy Policy</a>
                             <a href="terms-of-service.html"><i class="fas fa-file-contract me-2"></i>Terms of Service</a>
                             <a href="disclaimer.html"><i class="fas fa-exclamation-triangle me-2"></i>Disclaimer</a>
