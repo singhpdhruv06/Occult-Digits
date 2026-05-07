@@ -86,6 +86,7 @@ class MainFooter extends HTMLElement {
                     </div>
                 </div>
                 <div class="copyright border-top pt-3 mt-4 text-center">
+                <h4 class="mb-2" style="font-family: 'Noto Sans Devanagari', sans-serif; color: #d4af37; font-weight: 500; font-size: 1.4rem; font-style: italic; letter-spacing: 3px; transform: rotate(-3deg); display: inline-block; opacity: 0.9; text-shadow: 1px 1px 3px rgba(212, 175, 55, 0.3);">राम राम</h4>
                     <p>&copy; ${currentYear} OccultDigits.com. All Rights Reserved.</p>
                 </div>
             </div>
