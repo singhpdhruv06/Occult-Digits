@@ -1,7 +1,7 @@
 class MainHeader extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
-        <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <nav class="navbar navbar-expand-xl navbar-light fixed-top">
             <div class="container">
                 <a class="navbar-brand d-flex align-items-center" href="/" aria-label="Occult Digits - Vedic Numerology">
                     <i class="fas fa-dharmachakra me-2"></i>Occult Digits
@@ -19,7 +19,21 @@ class MainHeader extends HTMLElement {
                         <li class="nav-item"><a class="nav-link" href="/#faq">FAQ</a></li>
                         <li class="nav-item"><a class="nav-link" href="/#contact">Contact</a></li>
                     </ul>
-                    <a href="/#contact" class="btn btn-primary ms-lg-3 px-4 rounded-pill fw-bold">Book Consultation</a>
+                    <div class="d-none d-xl-flex align-items-center ms-xl-3">
+                        <a href="tel:+918860133445" class="text-decoration-none me-3 d-flex align-items-center" style="color: #8B5A2B; font-weight: 600; font-size: 1.05rem; transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                            <span class="d-flex align-items-center justify-content-center rounded-circle shadow-sm me-2" style="width: 38px; height: 38px; background: #fffcf2; border: 1px solid #d4af37;">
+                                <i class="fas fa-phone-alt" style="color: #d4af37; font-size: 1rem;"></i>
+                            </span>
+                            +91-8860133445
+                        </a>
+                        <a href="/#contact" class="btn btn-primary px-4 rounded-pill fw-bold shadow-sm">Book Now</a>
+                    </div>
+                    <div class="d-xl-none mt-3 d-flex flex-column border-top pt-3 gap-2">
+                        <a href="tel:+918860133445" class="btn btn-light w-100 rounded-pill fw-bold d-flex align-items-center justify-content-center" style="color: #8B5A2B; border: 1px solid #d4af37; background: #fffcf2;">
+                            <i class="fas fa-phone-alt me-2" style="color: #d4af37;"></i>+91-8860133445
+                        </a>
+                        <a href="/#contact" class="btn btn-primary w-100 rounded-pill fw-bold">Book Consultation</a>
+                    </div>
                 </div>
             </div>
         </nav>
