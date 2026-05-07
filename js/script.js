@@ -14,34 +14,36 @@ window.addEventListener('load', function() {
     }, 1000);
 });
 
-// Smooth scrolling for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        
-        const targetId = this.getAttribute('href');
-        if(targetId === '#') return;
-        
-        const targetElement = document.querySelector(targetId);
-        if(targetElement) {
+// Global event listener for smooth scrolling (supports Web Components & Absolute Paths)
+document.addEventListener('click', function (e) {
+    const anchor = e.target.closest('a');
+    if (!anchor) return;
+    
+    const href = anchor.getAttribute('href');
+    if (!href || !href.includes('#')) return;
+    if (href === '#') return;
+
+    const [path, hash] = href.split('#');
+    const isIndex = window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('/');
+    const targetIsIndex = !path || path === 'index.html';
+
+    if ((targetIsIndex && isIndex) || path === window.location.pathname.split('/').pop()) {
+        const targetElement = document.getElementById(hash);
+        if (targetElement) {
+            e.preventDefault();
             window.scrollTo({
                 top: targetElement.offsetTop - 80,
                 behavior: 'smooth'
             });
+            
+            // Close mobile menu if inside navbar
+            const navbarCollapse = document.getElementById('navbarNav');
+            if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+                const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+                if (bsCollapse) bsCollapse.hide();
+            }
         }
-    });
-});
-
-// Close mobile menu when a link is clicked
-document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-        const navbarCollapse = document.getElementById('navbarNav');
-        if (navbarCollapse && navbarCollapse.classList.contains('show')) {
-            // Using Bootstrap's collapse API
-            const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
-            if (bsCollapse) bsCollapse.hide();
-        }
-    });
+    }
 });
 
 // Navbar background change on scroll
@@ -250,35 +252,56 @@ if(calcForm) {
             waBtnContainer.classList.remove('d-none');
             
             resultsContainer.innerHTML = `
-                <div class="col-md-4 mb-3">
-                    <div class="result-box">
-                        <h5 class="fw-bold mb-0">Mulyaank</h5>
-                        <span class="small text-muted">(Psychic/Soul Number)</span>
-                        <div class="result-number">${mulyaank}</div>
-                        <div class="result-meaning">${numberMeanings[mulyaank] || ''}</div>
+                <div class="col-md-4 mb-4">
+                    <div class="result-box shadow-sm position-relative overflow-hidden bg-white">
+                        <div class="position-absolute top-0 start-0 w-100 h-100" style="background: linear-gradient(135deg, rgba(212,175,55,0.05) 0%, rgba(255,255,255,0) 100%); z-index: 0;"></div>
+                        <div class="position-relative z-1">
+                            <div class="mb-3 mt-2"><i class="fas fa-moon fa-2x" style="color: #d4af37; opacity: 0.7;"></i></div>
+                            <h5 class="fw-bold mb-0">Mulyaank</h5>
+                            <span class="small text-muted">(Psychic Number)</span>
+                            <div class="result-number display-4 my-2">${mulyaank}</div>
+                            <div class="result-meaning px-1">${numberMeanings[mulyaank] || ''}</div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-4 mb-3">
-                    <div class="result-box">
-                        <h5 class="fw-bold mb-0">Bhagyank</h5>
-                        <span class="small text-muted">(Life Path / Destiny Number)</span>
-                        <div class="result-number">${bhagyank}</div>
-                        <div class="result-meaning">${numberMeanings[bhagyank] || ''}</div>
+                <div class="col-md-4 mb-4">
+                    <div class="result-box shadow-sm position-relative overflow-hidden highlight-card">
+                        <div class="position-absolute top-0 start-0 w-100 h-100" style="background: linear-gradient(135deg, rgba(139,90,43,0.05) 0%, rgba(255,255,255,0) 100%); z-index: 0;"></div>
+                        <div class="position-relative z-1">
+                            <div class="mb-3 mt-2"><i class="fas fa-sun fa-2x" style="color: #8B5A2B; opacity: 0.7;"></i></div>
+                            <h5 class="fw-bold mb-0">Bhagyank</h5>
+                            <span class="small text-muted">(Destiny Number)</span>
+                            <div class="result-number display-4 my-2">${bhagyank}</div>
+                            <div class="result-meaning px-1">${numberMeanings[bhagyank] || ''}</div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-4 mb-3">
-                    <div class="result-box">
-                        <h5 class="fw-bold mb-0">Name Number</h5>
-                        <span class="small text-muted">(Expression Number)</span>
-                        <div class="result-number">${nameNumber}</div>
-                        <div class="result-meaning">${numberMeanings[nameNumber] || ''}</div>
-                        <div class="compatibility-badge ${badgeClass}"><i class="fas fa-info-circle me-1"></i>Compatibility: ${badgeText}</div>
+                <div class="col-md-4 mb-4">
+                    <div class="result-box shadow-sm position-relative overflow-hidden bg-white">
+                        <div class="position-absolute top-0 start-0 w-100 h-100" style="background: linear-gradient(135deg, rgba(212,175,55,0.05) 0%, rgba(255,255,255,0) 100%); z-index: 0;"></div>
+                        <div class="position-relative z-1">
+                            <div class="mb-3 mt-2"><i class="fas fa-signature fa-2x" style="color: #d4af37; opacity: 0.7;"></i></div>
+                            <h5 class="fw-bold mb-0">Name Number</h5>
+                            <span class="small text-muted">(Expression)</span>
+                            <div class="result-number display-4 my-2">${nameNumber}</div>
+                            <div class="result-meaning px-1">${numberMeanings[nameNumber] || ''}</div>
+                            <div class="compatibility-badge ${badgeClass} shadow-sm"><i class="fas fa-info-circle me-1"></i>${badgeText}</div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-12">
-                    <div class="lucky-info-box d-flex justify-content-around flex-wrap">
-                        <div><i class="fas fa-palette me-2" style="color: #d4af37;"></i>Lucky Color: <span class="lucky-item">${luckyColor}</span></div>
-                        <div><i class="fas fa-calendar-day me-2" style="color: #d4af37;"></i>Lucky Day: <span class="lucky-item">${luckyDay}</span></div>
+                <div class="col-12 mt-2">
+                    <div class="lucky-info-box d-flex justify-content-center gap-4 flex-wrap shadow-sm bg-white" style="border: 2px solid #d4af37; padding: 20px;">
+                        <div class="px-3 text-center">
+                            <i class="fas fa-palette fa-2x mb-2 d-block" style="color: #d4af37;"></i>
+                            <span class="text-muted small text-uppercase fw-bold">Lucky Color</span><br>
+                            <span class="lucky-item fs-5">${luckyColor}</span>
+                        </div>
+                        <div class="d-none d-md-block" style="border-left: 2px dashed rgba(212,175,55,0.3);"></div>
+                        <div class="px-3 text-center">
+                            <i class="fas fa-calendar-day fa-2x mb-2 d-block" style="color: #d4af37;"></i>
+                            <span class="text-muted small text-uppercase fw-bold">Lucky Day</span><br>
+                            <span class="lucky-item fs-5">${luckyDay}</span>
+                        </div>
                     </div>
                 </div>
             `;
@@ -298,33 +321,4 @@ if(calcForm) {
             window.open(`https://wa.me/918860133445?text=${encodeURIComponent(currentWaMessage)}`, '_blank');
         }
     });
-}
-
-// Set current year in footer
-document.getElementById('currentYear').textContent = new Date().getFullYear();
-
-// Add loading lazy for images
-document.addEventListener('DOMContentLoaded', function() {
-    const images = document.querySelectorAll('img');
-    images.forEach(img => {
-        img.loading = 'lazy';
-    });
-});
-
-// Performance optimization
-if ('IntersectionObserver' in window) {
-    const lazyImages = document.querySelectorAll('img[data-src]');
-    
-    const imageObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                img.src = img.dataset.src;
-                img.classList.remove('lazy');
-                imageObserver.unobserve(img);
-            }
-        });
-    });
-
-    lazyImages.forEach(img => imageObserver.observe(img));
 }
