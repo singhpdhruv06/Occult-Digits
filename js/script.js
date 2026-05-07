@@ -25,7 +25,7 @@ document.addEventListener('click', function (e) {
 
     const [path, hash] = href.split('#');
     const isIndex = window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('/');
-    const targetIsIndex = !path || path === 'index.html';
+    const targetIsIndex = !path || path === 'index.html' || path === '/';
 
     if ((targetIsIndex && isIndex) || path === window.location.pathname.split('/').pop()) {
         const targetElement = document.getElementById(hash);
