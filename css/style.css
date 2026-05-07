@@ -15,6 +15,7 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
@@ -541,7 +542,8 @@ footer {
 .whatsapp-button {
     position: fixed;
     bottom: 30px;
-    left: 30px;
+    right: 30px;
+    left: auto;
     width: 60px;
     height: 60px;
     background-color: #25D366;
@@ -571,7 +573,7 @@ footer {
 /* Back to top button */
 .back-to-top {
     position: fixed;
-    bottom: 30px;
+    bottom: 100px;
     right: 30px;
     width: 50px;
     height: 50px;
@@ -759,7 +761,7 @@ footer {
     }
     
     .back-to-top {
-        bottom: 20px;
+        bottom: 80px;
         right: 20px;
         width: 40px;
         height: 40px;
@@ -767,7 +769,8 @@ footer {
     
     .whatsapp-button {
         bottom: 20px;
-        left: 20px;
+        right: 20px;
+        left: auto;
         width: 50px;
         height: 50px;
     }
