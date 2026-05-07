@@ -448,6 +448,13 @@ h1, h2, h3, h4, h5 {
 .faq-card .btn-link:hover, .faq-card .btn-link:focus { text-decoration: none !important; outline: none !important; box-shadow: none !important; }
 
 
+/* Carousel touch targets for accessibility */
+.carousel-indicators button {
+    margin-left: 6px !important;
+    margin-right: 6px !important;
+    padding: 10px 0 !important;
+}
+
 /* Contact */
 .contact-section {
     background-color: white;
@@ -527,12 +534,12 @@ footer {
 
 .social-icons a {
     display: inline-block;
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 50%;
     text-align: center;
-    line-height: 40px;
+    line-height: 44px;
     margin-right: 10px;
     color: white;
     transition: var(--transition);
