@@ -13,23 +13,7 @@
     <link href="css/style.css?v=1.1" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-white shadow-sm">
-        <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="index.html">
-                <i class="fas fa-dharmachakra me-2"></i>Occult Digits
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
-                </ul>
-                <a href="index.html#contact" class="btn btn-primary ms-lg-3 px-4 rounded-pill fw-bold">Book Consultation</a>
-            </div>
-        </div>
-    </nav>
+    <main-header></main-header>
 
     <main class="pt-5 mt-5">
         <article class="container pb-5">
@@ -82,17 +66,10 @@
         </article>
     </main>
 
-    <footer class="bg-dark text-white py-4 mt-5">
-        <div class="container text-center">
-            <p class="mb-2">&copy; <span id="currentYear"></span> Occult Digits. All Rights Reserved.</p>
-            <a href="index.html" class="text-white text-decoration-none me-3">Home</a>
-            <a href="blog.html" class="text-white text-decoration-none me-3">Blog</a>
-            <a href="privacy-policy.html" class="text-muted text-decoration-none me-3">Privacy Policy</a>
-            <a href="disclaimer.html" class="text-muted text-decoration-none">Disclaimer</a>
-        </div>
-    </footer>
+    <main-footer></main-footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script>document.getElementById('currentYear').textContent = new Date().getFullYear();</script>
+    <script src="js/components.js?v=1.1"></script>
+    <script src="js/script.js?v=1.1"></script>
 </body>
 </html>
